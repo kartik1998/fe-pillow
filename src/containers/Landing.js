@@ -14,7 +14,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://pillow.fund/">
+      <Link color="inherit" href="https://www.pillow.fund/">
         pillow.fund
       </Link>{' '}
       {new Date().getFullYear()}
