@@ -1,4 +1,4 @@
-import Landing from "./containers/Landing";
+import Landing from './containers/Landing';
 function App() {
   return (
     <div className="App">
