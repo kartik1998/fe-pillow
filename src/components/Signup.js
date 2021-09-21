@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 function Copyright(props) {
   return (
@@ -28,15 +28,12 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
+export default function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    console.log(data);
   };
 
   return (
@@ -53,12 +50,29 @@ export default function Login() {
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
-              <PhonelinkLockIcon />
+              <AssignmentIndIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Login
-            </Typography>
+              Sign Up
+            </Typography>{' '}
+            <br />
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="fname"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField required fullWidth id="lastName" label="Last Name" name="lastName" autoComplete="lname" />
+                </Grid>
+              </Grid>
               <TextField
                 margin="normal"
                 required
@@ -85,13 +99,11 @@ export default function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="/login" variant="body2">
-                    Forgot password?
-                  </Link>
+                  Welcome to Pillow!
                 </Grid>
                 <Grid item>
-                  <Link href="/signup" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link href="/login" variant="body2">
+                    {'Already have an account? Login'}
                   </Link>
                 </Grid>
               </Grid>
