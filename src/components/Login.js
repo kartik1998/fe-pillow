@@ -12,13 +12,14 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://pillow.fund">
+        Pillow.fund
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -66,8 +67,8 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+              <PhonelinkLockIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Login
@@ -99,7 +100,7 @@ export default function Login() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
