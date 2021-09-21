@@ -41,7 +41,7 @@ export default function Landing() {
           <img
             src="https://uploads-ssl.webflow.com/6145c701c5ffca0e7b5781b8/61467d51b7209c6caedc932e_Horizontal-Logo.svg"
             alt="logo"
-            height="55px"
+            height="57px"
           />
         </Toolbar>
       </AppBar>
