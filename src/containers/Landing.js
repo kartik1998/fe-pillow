@@ -35,7 +35,7 @@ export default function Album() {
         position="relative"
         color="transparent"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}`, pl: '36em' }}
+        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}`, pl: '36em', pb: '1em', pt: '0.5em' }}
       >
         <Toolbar>
           <img
