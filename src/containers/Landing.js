@@ -64,7 +64,9 @@ export default function Album() {
               The simplest way to invest in DeFi funds. Sign up and start saving today.
             </Typography>
             <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
-              <Button variant="contained">LOGIN</Button>
+              <Link href="/login">
+                <Button variant="contained">LOGIN</Button>
+              </Link>
               <Button variant="outlined">SIGN Up</Button>
             </Stack>
           </Container>
