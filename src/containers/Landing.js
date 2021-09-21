@@ -67,7 +67,9 @@ export default function Landing() {
               <Link href="/login">
                 <Button variant="contained">LOGIN</Button>
               </Link>
-              <Button variant="outlined">SIGN Up</Button>
+              <Link href="/signup" style={{ 'text-decoration': 'none' }}>
+                <Button variant="outlined">SIGN Up</Button>
+              </Link>
             </Stack>
           </Container>
         </Box>
