@@ -3,7 +3,7 @@ import firebase from 'firebase';
 
 export const authMethods = {
   // firebase helper methods go here...
-  signup: (email, password, setErrors, setToken) => {
+  signup: (email, password, setToken) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -17,10 +17,10 @@ export const authMethods = {
         console.log(res);
       })
       .catch((err) => {
-        setErrors((prev) => [...prev, err.message]);
+        console.log(err);
       });
   },
-  signin: (email, password, setErrors, setToken) => {
+  signin: (email, password, setToken) => {
     //change from create users to...
     firebase
       .auth()
@@ -34,11 +34,11 @@ export const authMethods = {
         setToken(window.localStorage.token);
       })
       .catch((err) => {
-        setErrors((prev) => [...prev, err.message]);
+        console.log(err);
       });
   },
   //no need for email and password
-  signout: (setErrors, setToken) => {
+  signout: (setToken) => {
     // signOut is a no argument function
     firebase
       .auth()
@@ -51,7 +51,7 @@ export const authMethods = {
       })
       .catch((err) => {
         //there shouldn't every be an error from firebase but just in case
-        setErrors((prev) => [...prev, err.message]);
+        console.log(err);
         //whether firebase does the trick or not i want my user to do there thing.
         localStorage.removeItem('token');
         setToken(null);
