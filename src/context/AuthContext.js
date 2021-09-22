@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { authMethods } from '../firebase/authMethods';
 
 export const firebaseAuth = React.createContext();
 const AuthContext = (props) => {
-  const initState = { email: '', password: '' };
+  const initState = { firstName: '', lastName: '', email: '', password: '' };
   const [inputs, setInputs] = useState(initState);
   const [token, setToken] = useState(null);
 
   const handleSignup = () => {
     console.log('--sign up--');
+    console.log({ inputs });
     authMethods.signup(inputs.email, inputs.password, setToken);
-    console.log(errors, token);
+    console.log(token);
   };
   const handleSignin = () => {
     console.log('--sign in--');
     authMethods.signin(inputs.email, inputs.password, setToken);
-    console.log(errors, token);
+    console.log(token);
   };
 
   const handleSignout = () => {
@@ -31,7 +32,6 @@ const AuthContext = (props) => {
         token,
         inputs,
         setInputs,
-        errors,
         handleSignout,
       }}
     >

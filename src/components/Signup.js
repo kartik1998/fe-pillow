@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import { firebaseAuth } from '../context/AuthContext';
+import { useContext, useEffect } from 'react';
 
 function Copyright(props) {
   return (
@@ -30,12 +31,27 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signup() {
+  const { handleSignup, inputs, setInputs } = useContext(firebaseAuth);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log(data);
+    const signUpInput = {
+      email: data.get('email'),
+      password: data.get('password'),
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
+    };
+    setInputs(signUpInput);
   };
+
+  useEffect(() => {
+    (async function () {
+      if (inputs.email !== '' && inputs.password !== '') {
+        console.log({ inputs });
+        await handleSignup();
+      }
+    })();
+  }, [inputs.email, inputs.password, inputs.firstName, inputs.lastName]);
 
   return (
     <ThemeProvider theme={theme}>
