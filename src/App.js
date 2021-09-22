@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import { firebaseAuth } from './context/AuthContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
-  const { test } = useContext(firebaseAuth);
-  console.log({ test });
+  const { handleSignup } = useContext(firebaseAuth);
+  console.log(handleSignup);
   return (
     <Router>
       <Route exact path="/" component={Landing} />
