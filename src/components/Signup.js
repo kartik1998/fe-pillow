@@ -47,13 +47,18 @@ export default function Signup() {
 
   useEffect(() => {
     if (inputs.email !== '' && inputs.password !== '') {
-      handleSignup(async (err, token) => {
+      handleSignup((err, token) => {
         if (err) {
           setInputs({ email: '', password: '' });
           setSignUpSuccess(false);
           window.alert(err.message);
         } else {
-          await writeUserData(token.h, { kycDetails: null });
+          writeUserData(token.h, {
+            inputDetails: { email: inputs.email, firstName: inputs.firstName, lastName: inputs.lastName },
+            kycDetails: {
+              status: 'incomplete',
+            },
+          });
           setSignUpSuccess(true);
         }
       });
