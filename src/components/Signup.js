@@ -13,6 +13,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import { firebaseAuth } from '../context/AuthContext';
 import { useContext, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { writeUserData } from '../firebase/api';
 
 function Copyright(props) {
   return (
@@ -46,12 +47,13 @@ export default function Signup() {
 
   useEffect(() => {
     if (inputs.email !== '' && inputs.password !== '') {
-      handleSignup((err, token) => {
+      handleSignup(async (err, token) => {
         if (err) {
           setInputs({ email: '', password: '' });
           setSignUpSuccess(false);
           window.alert(err.message);
         } else {
+          await writeUserData(token.h, { kycDetails: null });
           setSignUpSuccess(true);
         }
       });
