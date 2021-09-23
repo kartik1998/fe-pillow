@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import { firebaseAuth } from '../context/AuthContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -29,6 +30,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signup() {
+  const [signUpSuccess, setSignUpSuccess] = useState(null);
   const { handleSignup, inputs, setInputs } = useContext(firebaseAuth);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,13 +45,20 @@ export default function Signup() {
   };
 
   useEffect(() => {
-    (async function () {
-      if (inputs.email !== '' && inputs.password !== '') {
-        console.log({ inputs });
-        await handleSignup();
-      }
-    })();
+    if (inputs.email !== '' && inputs.password !== '') {
+      handleSignup((err, token) => {
+        if (err) {
+          setInputs({ email: '', password: '' });
+          setSignUpSuccess(false);
+          window.alert(err.message);
+        } else {
+          setSignUpSuccess(true);
+        }
+      });
+    }
   }, [inputs.email, inputs.password, inputs.firstName, inputs.lastName]);
+
+  if (signUpSuccess) return <Redirect to="/userKYC" />; // redirect when sign up is complete
 
   return (
     <ThemeProvider theme={theme}>

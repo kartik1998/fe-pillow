@@ -9,12 +9,11 @@ const AuthContext = (props) => {
   const [errors, setErrors] = useState([]);
   const [token, setToken] = useState(null);
 
-  const handleSignup = () => {
+  const handleSignup = (cb) => {
     // middle man between firebase and signup
     console.log('handleSignup');
     // calling signup from firebase server
-    authMethods.signup(inputs.email, inputs.password, setErrors, setToken);
-    console.log(errors, token);
+    authMethods.signup(inputs.email, inputs.password, setErrors, setToken, cb);
   };
   const handleSignin = () => {
     //changed to handleSingin

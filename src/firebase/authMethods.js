@@ -3,7 +3,7 @@ import firebase from 'firebase';
 
 export const authMethods = {
   // firebase helper methods go here...
-  signup: (email, password, setToken) => {
+  signup: (email, password, setErrors, setToken, cb) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -11,16 +11,18 @@ export const authMethods = {
       .then(async (res) => {
         const token = await Object.entries(res.user)[5][1].b;
         //set token to localStorage
-        await localStorage.setItem('token', token);
+        localStorage.setItem('token', token);
         setToken(token);
+        cb(null, token);
         //grab token from local storage and set to state.
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        cb(err, null);
+        setErrors((prev) => [...prev, err.message]);
       });
   },
-  signin: (email, password, setToken) => {
+  signin: (email, password, setErrors, setToken) => {
     //change from create users to...
     firebase
       .auth()
@@ -34,11 +36,11 @@ export const authMethods = {
         setToken(window.localStorage.token);
       })
       .catch((err) => {
-        console.log(err);
+        setErrors((prev) => [...prev, err.message]);
       });
   },
   //no need for email and password
-  signout: (setToken) => {
+  signout: (setErrors, setToken) => {
     // signOut is a no argument function
     firebase
       .auth()
@@ -51,7 +53,7 @@ export const authMethods = {
       })
       .catch((err) => {
         //there shouldn't every be an error from firebase but just in case
-        console.log(err);
+        setErrors((prev) => [...prev, err.message]);
         //whether firebase does the trick or not i want my user to do there thing.
         localStorage.removeItem('token');
         setToken(null);
