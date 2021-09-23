@@ -2,25 +2,30 @@ import React, { useState } from 'react';
 import { authMethods } from '../firebase/authMethods';
 
 export const firebaseAuth = React.createContext();
+
 const AuthContext = (props) => {
-  const initState = { firstName: '', lastName: '', email: '', password: '' };
+  const initState = { email: '', password: '' };
   const [inputs, setInputs] = useState(initState);
+  const [errors, setErrors] = useState([]);
   const [token, setToken] = useState(null);
 
   const handleSignup = () => {
-    console.log('--sign up--');
-    console.log({ inputs });
-    authMethods.signup(inputs.email, inputs.password, setToken);
-    console.log(token);
+    // middle man between firebase and signup
+    console.log('handleSignup');
+    // calling signup from firebase server
+    authMethods.signup(inputs.email, inputs.password, setErrors, setToken);
+    console.log(errors, token);
   };
   const handleSignin = () => {
-    console.log('--sign in--');
-    authMethods.signin(inputs.email, inputs.password, setToken);
-    console.log(token);
+    //changed to handleSingin
+    console.log('handleSignin!!!!');
+    // made signup signin
+    authMethods.signin(inputs.email, inputs.password, setErrors, setToken);
+    console.log(errors, token);
   };
 
   const handleSignout = () => {
-    authMethods.signout(setToken);
+    authMethods.signout(setErrors, setToken);
   };
 
   return (
@@ -32,6 +37,7 @@ const AuthContext = (props) => {
         token,
         inputs,
         setInputs,
+        errors,
         handleSignout,
       }}
     >
