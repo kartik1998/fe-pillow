@@ -2,6 +2,7 @@ import './index';
 import firebase from 'firebase';
 
 export const writeUserData = (userId, userData) => {
+  window.localStorage.setItem('userData', JSON.stringify(userData));
   firebase.database().ref(`user/${userId}`).set(userData).catch(alert);
 };
 
