@@ -1,8 +1,7 @@
 import Landing from './containers/Landing';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { useContext } from 'react';
-import { firebaseAuth } from './context/AuthContext';
+import ResponsiveDrawer from './components/dashoard/Drawer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
@@ -10,6 +9,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/dashboard" component={ResponsiveDrawer} />
     </Router>
   );
 }
