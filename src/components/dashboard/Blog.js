@@ -91,7 +91,9 @@ export default function Blog() {
           </Grid>
         </main>
       </Container>
-      <Footer title="Pillow" description="Use curated portfolios to earn up to 20%* interest on your USDC and USDT" />
+      <br />
+      <br />
+      <Footer />
     </ThemeProvider>
   );
 }
