@@ -22,7 +22,7 @@ function Header(props) {
           <Button size="large" sx={navbarSx}>
             See Plans
           </Button>
-          <Button size="large" sx={{ ...navbarSx, pl: '550px' }}>
+          <Button size="large" sx={{ ...navbarSx, pl: '600px' }}>
             <NotificationsIcon />
           </Button>
           <Button size="large" sx={navbarSx}>
