@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 const overviewFont = {
-  fontSize: '23px',
+  fontSize: '18px',
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
@@ -16,7 +16,7 @@ const overviewFont = {
 };
 
 const valueFont = {
-  fontSize: '21px',
+  fontSize: '16px',
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
@@ -30,8 +30,8 @@ const descFont = {
 
 const boxSx = {
   position: 'relative',
-  p: { xs: 3, md: 3 },
-  pr: { md: 3 },
+  pt: '20px',
+  pl: '20px',
 };
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -98,7 +98,7 @@ function MainFeaturedPost(props) {
               <Button variant="contained">Invest now</Button>
             </Box>
             <Box>
-              <Button variant="outlined">Download fact sheet</Button>
+              <Button variant="outlined">fact sheet</Button>
             </Box>
           </Box>
         </Grid>
