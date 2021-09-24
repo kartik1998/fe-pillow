@@ -91,7 +91,7 @@ export default function Blog() {
           </Grid>
         </main>
       </Container>
-      <Footer title="Footer" description="Something here to give the footer a purpose!" />
+      <Footer title="Pillow" description="Use curated portfolios to earn up to 20%* interest on your USDC and USDT" />
     </ThemeProvider>
   );
 }
