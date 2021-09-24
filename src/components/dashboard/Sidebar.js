@@ -5,17 +5,40 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
+const pillowFont = {
+  fontSize: '18px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  color: '#1876D1',
+  fontWeight: 'bold',
+};
+
+const usdtFont = {
+  fontSize: '26px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  color: '#ADD8E6',
+};
 
 function Sidebar(props) {
   const { archives, description, social, title } = props;
 
   return (
     <Grid item xs={12} md={4}>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography variant="h6" gutterBottom>
-          {title}
+      <Paper variant="outlined">
+        <Typography align="center" style={pillowFont} sx={{ paddingBottom: '50px', paddingTop: '7px' }}>
+          Pillow Wallet{' '}
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/bitcoin-wallet-3058908-2546445.png"
+            height="25px"
+            style={{ paddingTop: '12px' }}
+          />
         </Typography>
-        <Typography>{description}</Typography>
       </Paper>
     </Grid>
   );
