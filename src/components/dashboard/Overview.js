@@ -27,6 +27,12 @@ const descFont = {
   color: '#81878B',
 };
 
+const boxSx = {
+  position: 'relative',
+  pt: '20px',
+  pl: '20px',
+};
+
 function MainFeaturedPost(props) {
   const { post } = props;
 
@@ -36,27 +42,16 @@ function MainFeaturedPost(props) {
         position: 'relative',
         backgroundColor: '#F9FAFB',
         color: '#F9FAFB',
-        mb: 3,
+        mb: 4,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
+        p: '8px',
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          backgroundColor: '#F9FAFB',
-        }}
-      />
       <Grid container>
         <Grid item xs={12} sm={6} md={3}>
-          <Box
-            sx={{
-              position: 'relative',
-              p: { xs: 3, md: 2 },
-              pr: { md: 0 },
-            }}
-          >
+          <Box sx={boxSx}>
             <Typography style={overviewFont} gutterBottom>
               {post.title}
             </Typography>
@@ -66,13 +61,7 @@ function MainFeaturedPost(props) {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Box
-            sx={{
-              position: 'relative',
-              p: { xs: 3, md: 3 },
-              pr: { md: 0 },
-            }}
-          >
+          <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Total Value
             </Typography>
@@ -82,13 +71,7 @@ function MainFeaturedPost(props) {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Box
-            sx={{
-              position: 'relative',
-              p: { xs: 3, md: 3 },
-              pr: { md: 0 },
-            }}
-          >
+          <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Total Investment
             </Typography>
@@ -98,13 +81,7 @@ function MainFeaturedPost(props) {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Box
-            sx={{
-              position: 'relative',
-              p: { xs: 3, md: 3 },
-              pr: { md: 0 },
-            }}
-          >
+          <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Current returns
             </Typography>
