@@ -2,15 +2,12 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
-import Sidebar from './Sidebar';
+import PillowWallet from './PillowWallet';
 import Footer from './Footer';
 
 const mainFeaturedPost = {
@@ -53,7 +50,7 @@ export default function Blog() {
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="Your Investments" />
-            <Sidebar />
+            <PillowWallet />
           </Grid>
         </main>
       </Container>
