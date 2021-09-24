@@ -81,7 +81,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="Crypto Insights" posts={posts} />
+            <Main title="Your Investments" />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}

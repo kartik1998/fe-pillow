@@ -19,28 +19,11 @@ function Main(props) {
   const { posts, title } = props;
 
   return (
-    <Grid
-      item
-      xs={12}
-      md={8}
-      sx={{
-        '& .markdown': {
-          py: 3,
-        },
-      }}
-    >
+    <Grid item xs={12} md={8}>
       <Typography style={titleFont} gutterBottom>
         {title}
       </Typography>
       <Divider />
-      {posts.map((post) => (
-        <>
-          <Markdown className="markdown" key={post.substring(0, 40)}>
-            {post}
-          </Markdown>
-          <Divider />
-        </>
-      ))}
     </Grid>
   );
 }
