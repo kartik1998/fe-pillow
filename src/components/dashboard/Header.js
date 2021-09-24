@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import Link from '@mui/material/Link';
 
 const navbarSx = { color: '#535B61', textTransform: 'none' };
 function Header(props) {
@@ -13,15 +14,21 @@ function Header(props) {
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', height: '1em' }}>
         <Container maxWidth="lg">
-          <Button size="large">
-            <b>PILLOW</b>
-          </Button>
-          <Button size="large" sx={navbarSx}>
-            Dashboard
-          </Button>
-          <Button size="large" sx={navbarSx}>
-            See Plans
-          </Button>
+          <Link href="/dashboard" style={{ textDecoration: 'none' }}>
+            <Button size="large">
+              <b>PILLOW</b>
+            </Button>
+          </Link>
+          <Link href="/dashboard" style={{ textDecoration: 'none' }}>
+            <Button size="large" sx={navbarSx}>
+              Dashboard
+            </Button>
+          </Link>
+          <Link href="/plans" style={{ textDecoration: 'none' }}>
+            <Button size="large" sx={navbarSx}>
+              See Plans
+            </Button>
+          </Link>
           <Button size="large" sx={{ ...navbarSx, pl: '600px' }}>
             <NotificationsIcon />
           </Button>
