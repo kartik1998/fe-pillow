@@ -1,7 +1,7 @@
 import Landing from './containers/Landing';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Blog from './components/dashboard/Blog';
+import Blog from './containers/Dashboard';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (

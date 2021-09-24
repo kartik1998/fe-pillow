@@ -3,19 +3,19 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import PillowWallet from './PillowWallet';
-import Footer from './Footer';
+import Header from '../components/dashboard/Header';
+import Overview from '../components/dashboard/Overview';
+import Update from '../components/dashboard/Update';
+import Investment from '../components/dashboard/Investment';
+import PillowWallet from '../components/dashboard/PillowWallet';
+import Footer from '../components/dashboard/Footer';
 
-const mainFeaturedPost = {
+const overview = {
   title: 'Overview',
   description: 'Your pillow investments',
 };
 
-const featuredPosts = [
+const updates = [
   {
     title: 'BTC updates',
     description: `Experts believe that Bitcoin's rebound could provide a boost to the virtual coin market over the next few days.`,
@@ -42,14 +42,14 @@ export default function Blog() {
       <Header />
       <Container maxWidth="lg">
         <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
+          <Overview post={overview} />
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
+            {updates.map((post) => (
+              <Update key={post.title} post={post} />
             ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="Your Investments" />
+            <Investment title="Your Investments" />
             <PillowWallet />
           </Grid>
         </main>
