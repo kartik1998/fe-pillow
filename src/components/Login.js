@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
 import { firebaseAuth } from '../context/AuthContext';
 import { Redirect } from 'react-router-dom';
+import { populateUserDataStorage } from '../firebase/api';
 
 function Copyright(props) {
   return (
@@ -42,12 +43,15 @@ export default function Login() {
   };
   useEffect(() => {
     if (inputs.email !== '' && inputs.password !== '') {
-      handleSignin((err, token) => {
+      handleSignin(async (err, token) => {
         if (err) {
           setInputs({ email: '', password: '' });
           setLoginSuccess(false);
           window.alert(err.message);
         } else {
+          populateUserDataStorage(token.h, (userData) => {
+            window.localStorage.setItem('userData', userData);
+          });
           setLoginSuccess(true);
         }
       });
