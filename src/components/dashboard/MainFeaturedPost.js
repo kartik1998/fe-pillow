@@ -3,8 +3,29 @@ import PropTypes from 'prop-types';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+
+const overviewFont = {
+  fontSize: '21px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  color: 'black',
+  fontWeight: 'bold',
+};
+
+const valueFont = {
+  fontSize: '21px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  color: 'black',
+};
+
+const descFont = {
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  color: '#81878B',
+};
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -15,7 +36,7 @@ function MainFeaturedPost(props) {
         position: 'relative',
         backgroundColor: '#F9FAFB',
         color: '#F9FAFB',
-        mb: 4,
+        mb: 3,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -32,23 +53,68 @@ function MainFeaturedPost(props) {
         }}
       />
       <Grid container>
-        <Grid item md={6}>
+        <Grid item xs={12} sm={6} md={3}>
           <Box
             sx={{
               position: 'relative',
-              p: { xs: 3, md: 6 },
+              p: { xs: 3, md: 3 },
               pr: { md: 0 },
             }}
           >
-            <Typography component="h4" variant="h3" color="black" gutterBottom>
+            <Typography variant="h4" style={overviewFont} gutterBottom>
               {post.title}
             </Typography>
-            <Typography variant="p" color="black" paragraph>
+            <Typography variant="p" style={descFont} paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box
+            sx={{
+              position: 'relative',
+              p: { xs: 3, md: 3 },
+              pr: { md: 0 },
+            }}
+          >
+            <Typography variant="p" style={descFont} gutterBottom>
+              Total Value
+            </Typography>
+            <Typography variant="p" style={valueFont} paragraph>
+              $0.00
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box
+            sx={{
+              position: 'relative',
+              p: { xs: 3, md: 3 },
+              pr: { md: 0 },
+            }}
+          >
+            <Typography variant="p" style={descFont} gutterBottom>
+              Total Investment
+            </Typography>
+            <Typography variant="p" style={valueFont} paragraph>
+              __
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box
+            sx={{
+              position: 'relative',
+              p: { xs: 3, md: 3 },
+              pr: { md: 0 },
+            }}
+          >
+            <Typography variant="p" style={descFont} gutterBottom>
+              Current returns
+            </Typography>
+            <Typography variant="p" style={valueFont} paragraph>
+              __
+            </Typography>
           </Box>
         </Grid>
       </Grid>

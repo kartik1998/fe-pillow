@@ -19,7 +19,6 @@ import post3 from './blog-post.3.md';
 const mainFeaturedPost = {
   title: 'Overview',
   description: 'Your pillow investments',
-  imageText: 'main image description',
 };
 
 const featuredPosts = [
@@ -65,7 +64,9 @@ const sidebar = {
   ],
 };
 
-const theme = createTheme();
+const theme = createTheme({
+  shadows: ['none'],
+});
 
 export default function Blog() {
   return (
