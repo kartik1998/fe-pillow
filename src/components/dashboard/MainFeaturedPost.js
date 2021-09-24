@@ -6,12 +6,12 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 const overviewFont = {
-  fontSize: '21px',
+  fontSize: '23px',
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
-  color: 'black',
-  fontWeight: 'bold',
+  fontWeight: '550',
+  color: '#2f363f',
 };
 
 const valueFont = {
@@ -19,7 +19,7 @@ const valueFont = {
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
-  color: 'black',
+  color: '#2f363f',
 };
 
 const descFont = {
@@ -61,7 +61,7 @@ function MainFeaturedPost(props) {
               pr: { md: 0 },
             }}
           >
-            <Typography variant="h4" style={overviewFont} gutterBottom>
+            <Typography style={overviewFont} gutterBottom>
               {post.title}
             </Typography>
             <Typography variant="p" style={descFont} paragraph>
