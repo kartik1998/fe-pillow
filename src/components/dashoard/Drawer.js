@@ -44,16 +44,6 @@ function ResponsiveDrawer(props) {
           height="29"
           width="140"
         />
-        {/* <Typography
-          style={{
-            fontFamily: `"Gill Sans Extrabold", sans-serif`,
-            fontSize: 16,
-            fontWeight: 600,
-          }}
-        >
-          {' '}
-          Pillow{' '}
-        </Typography> */}
       </Toolbar>
       <Divider />
       <List>
@@ -106,13 +96,7 @@ function ResponsiveDrawer(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
+      <AppBar position="fixed" elevation={1} style={{ background: 'white' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -123,9 +107,9 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" style={{ ...listItemStyle, fontSize: '18px' }}>
+          {/* <Typography variant="h6" noWrap component="div" style={{ ...listItemStyle, fontSize: '18px' }}>
             Dashboard
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
       <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
