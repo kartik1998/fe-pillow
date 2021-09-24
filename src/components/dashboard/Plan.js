@@ -7,12 +7,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 const overviewFont = {
-  fontSize: '18px',
+  fontSize: '17px',
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
   fontWeight: '550',
   color: '#2f363f',
+  paddingTop: '15px',
 };
 
 const valueFont = {
@@ -20,18 +21,18 @@ const valueFont = {
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   fontStyle: 'normal',
   fontStretch: 'normal',
-  color: '#2f363f',
+  color: '#81878B',
 };
 
 const descFont = {
   fontFamily: `'Graphik Web Medium', sans-serif;`,
   color: '#81878B',
+  fontSize: '15.5px',
 };
 
 const boxSx = {
   position: 'relative',
   pt: '20px',
-  pl: '20px',
 };
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -44,7 +45,7 @@ function MainFeaturedPost(props) {
             <img
               src="https://thumbs.dreamstime.com/b/black-chess-knight-background-chessboard-cells-figure-horse-symbol-concept-design-realistic-vector-illustration-147739836.jpg"
               alt="securitas"
-              height="150px"
+              height="130px"
               width="100px"
             />
           </Box>
@@ -65,14 +66,12 @@ function MainFeaturedPost(props) {
               Risk Profile
             </Typography>
             <Typography variant="p" style={descFont} paragraph>
-              ✔️ No Market risk
-            </Typography>
-            <Typography variant="p" style={descFont} paragraph>
+              ✔️ No Market risk <br />
               ✔️ All funds insured
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} sx={{ pt: '13.5px' }}>
           <Box sx={boxSx}>
             <Typography variant="p" style={overviewFont} gutterBottom sx={{ pt: '10px' }}>
               Minimum Amt
@@ -82,7 +81,7 @@ function MainFeaturedPost(props) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} sx={{ pt: '13.5px' }}>
           <Box sx={boxSx}>
             <Typography variant="p" style={overviewFont} gutterBottom>
               Annualized Returns
@@ -92,7 +91,7 @@ function MainFeaturedPost(props) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} sx={{ pt: '11.5px' }}>
           <Box sx={boxSx}>
             <Box sx={{ pb: '20px', flex: 1 }}>
               <Button variant="contained">Invest now</Button>
