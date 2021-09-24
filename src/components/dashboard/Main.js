@@ -5,6 +5,16 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Markdown from './Markdown';
 
+const titleFont = {
+  fontSize: '17px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  fontWeight: '550',
+  color: '#2f363f',
+  paddingBottom: '8px',
+};
+
 function Main(props) {
   const { posts, title } = props;
 
@@ -19,7 +29,7 @@ function Main(props) {
         },
       }}
     >
-      <Typography variant="h6" gutterBottom>
+      <Typography style={titleFont} gutterBottom>
         {title}
       </Typography>
       <Divider />
