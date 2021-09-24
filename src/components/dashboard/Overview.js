@@ -4,6 +4,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 const overviewFont = {
   fontSize: '23px',
@@ -39,18 +41,13 @@ function MainFeaturedPost(props) {
   return (
     <Paper
       sx={{
-        position: 'relative',
         backgroundColor: '#F9FAFB',
-        color: '#F9FAFB',
         mb: 4,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
         p: '8px',
       }}
     >
       <Grid container>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={2.4}>
           <Box sx={boxSx}>
             <Typography style={overviewFont} gutterBottom>
               {post.title}
@@ -60,7 +57,7 @@ function MainFeaturedPost(props) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={2.4}>
           <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Total Value
@@ -70,7 +67,7 @@ function MainFeaturedPost(props) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={2.4}>
           <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Total Investment
@@ -80,7 +77,7 @@ function MainFeaturedPost(props) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={2.4}>
           <Box sx={boxSx}>
             <Typography variant="p" style={descFont} gutterBottom>
               Current returns
@@ -88,6 +85,15 @@ function MainFeaturedPost(props) {
             <Typography variant="p" style={valueFont} paragraph>
               __
             </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={2.4} sx={{ pt: '8px' }}>
+          <Box sx={boxSx}>
+            <Link href="/plans">
+              <Button variant="contained" sx={{ textTransform: 'none', pl: '30px', pr: '30px' }}>
+                Discover Plans
+              </Button>
+            </Link>
           </Box>
         </Grid>
       </Grid>
