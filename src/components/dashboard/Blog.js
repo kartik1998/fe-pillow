@@ -23,18 +23,17 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description: 'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+    title: 'BTC updates',
+    description: `Experts believe that Bitcoin's rebound could provide a boost to the virtual coin market over the next few days.`,
+    image:
+      'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F609a8e1aa40dd8d452a5e166%2FGetty-Images%2F960x0.jpg%3Ffit%3Dscale',
+    imageLabel: 'BTC',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
-    description: 'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+    title: 'ETH updates',
+    description: `Ethereum 2.0 Includes Major Changes That Could End Bitcoin's Blockchain Dominance - By Andrej Kovačević`,
+    image: 'https://static.india.com/wp-content/uploads/2021/02/ethereum.jpg?impolicy=Medium_Resize&w=1200&h=800',
+    imageLabel: 'ETH',
   },
 ];
 
@@ -76,6 +75,11 @@ export default function Blog() {
       <Container maxWidth="lg">
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="Crypto Insights" posts={posts} />
             <Sidebar
