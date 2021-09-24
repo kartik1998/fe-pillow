@@ -41,7 +41,7 @@ function MainFeaturedPost(props) {
     <Paper variant="outlined">
       <Grid container>
         <Grid item xs={12} sm={6} md={2}>
-          <Box sx={boxSx}>
+          <Box sx={{ ...boxSx, pl: '40px' }}>
             <img
               src="https://thumbs.dreamstime.com/b/black-chess-knight-background-chessboard-cells-figure-horse-symbol-concept-design-realistic-vector-illustration-147739836.jpg"
               alt="securitas"
