@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,6 +10,8 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
+import { firebaseAuth } from '../context/AuthContext';
+import { Redirect } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -27,18 +29,31 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { handleSignin, inputs, setInputs, errors } = useContext(firebaseAuth);
+
+  const [loginSuccess, setLoginSuccess] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    setEmail(data.get('email'));
-    setPassword(data.get('password'));
+    setInputs({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
   useEffect(() => {
-    console.log(email, password);
-  }, [(email, password)]);
-
+    if (inputs.email !== '' && inputs.password !== '') {
+      handleSignin((err, token) => {
+        if (err) {
+          setInputs({ email: '', password: '' });
+          setLoginSuccess(false);
+          window.alert(err.message);
+        } else {
+          setLoginSuccess(true);
+        }
+      });
+    }
+  }, [inputs.email, inputs.password]);
+  if (loginSuccess) return <Redirect to="/dashboard" />; // redirect to dashboard when login is complete
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>

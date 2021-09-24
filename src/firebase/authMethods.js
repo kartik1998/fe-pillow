@@ -22,7 +22,7 @@ export const authMethods = {
         setErrors((prev) => [...prev, err.message]);
       });
   },
-  signin: (email, password, setErrors, setToken) => {
+  signin: (email, password, setErrors, setToken, cb) => {
     //change from create users to...
     firebase
       .auth()
@@ -31,11 +31,13 @@ export const authMethods = {
       .then(async (res) => {
         const token = await Object.entries(res.user)[5][1].b;
         //set token to localStorage
-        await localStorage.setItem('token', token);
+        localStorage.setItem('token', token);
 
         setToken(window.localStorage.token);
+        cb(null, token);
       })
       .catch((err) => {
+        cb(err, null);
         setErrors((prev) => [...prev, err.message]);
       });
   },

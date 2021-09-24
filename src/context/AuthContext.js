@@ -15,12 +15,11 @@ const AuthContext = (props) => {
     // calling signup from firebase server
     authMethods.signup(inputs.email, inputs.password, setErrors, setToken, cb);
   };
-  const handleSignin = () => {
+  const handleSignin = (cb) => {
     //changed to handleSingin
-    console.log('handleSignin!!!!');
+    console.log('--sign in flow--');
     // made signup signin
-    authMethods.signin(inputs.email, inputs.password, setErrors, setToken);
-    console.log(errors, token);
+    authMethods.signin(inputs.email, inputs.password, setErrors, setToken, cb);
   };
 
   const handleSignout = () => {
