@@ -64,11 +64,15 @@ function Sidebar() {
           </Grid>
         </Grid>
         <Box sx={{ pb: '20px', pl: '120px' }}>
-          <Button variant="contained">Invest More</Button>
+          <Button variant="contained" sx={{ textTransform: 'none' }}>
+            Invest More
+          </Button>
         </Box>
 
         <Box sx={{ pb: '20px', pl: '105px' }}>
-          <Button variant="outlined">Withdraw Funds</Button>
+          <Button variant="outlined" sx={{ textTransform: 'none' }}>
+            Withdraw Funds
+          </Button>
         </Box>
       </Paper>
     </Grid>
