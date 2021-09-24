@@ -87,8 +87,8 @@ export default function Blog() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header sections={sections} />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
