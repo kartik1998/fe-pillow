@@ -65,7 +65,7 @@ function Sidebar() {
         </Grid>
         <Box sx={{ pb: '20px', pl: '120px' }}>
           <Button variant="contained" sx={{ textTransform: 'none' }}>
-            Invest More
+            Add Funds
           </Button>
         </Box>
 

@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import InvestPopup from '../InvestPopup';
+import InvestPopup from './InvestPopup';
 
 const titleFont = {
   fontSize: '17px',
