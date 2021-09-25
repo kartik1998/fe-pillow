@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import WithDrawFunds from './WithdrawFundsPopup';
 
 const pillowFont = {
   fontSize: '18px',
@@ -71,11 +72,8 @@ function PillowWallet() {
             </Button>
           </Link>
         </Box>
-
-        <Box sx={{ pb: '20px', pl: '105px' }}>
-          <Button variant="outlined" sx={{ textTransform: 'none' }}>
-            Withdraw Funds
-          </Button>
+        <Box sx={{ pb: '20px', pl: '90px' }}>
+          <WithDrawFunds />
         </Box>
       </Paper>
     </Grid>
