@@ -29,7 +29,12 @@ function Header(props) {
               See Plans
             </Button>
           </Link>
-          <Button size="large" sx={{ ...navbarSx, pl: '600px' }}>
+          <Link href="/addFunds" style={{ textDecoration: 'none' }}>
+            <Button size="large" sx={navbarSx}>
+              Add Funds
+            </Button>
+          </Link>
+          <Button size="large" sx={{ ...navbarSx, pl: '500px' }}>
             <NotificationsIcon />
           </Button>
           <Button size="large" sx={navbarSx}>
