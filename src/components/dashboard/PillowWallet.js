@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 
 const pillowFont = {
   fontSize: '18px',
@@ -64,9 +65,11 @@ function PillowWallet() {
           </Grid>
         </Grid>
         <Box sx={{ pb: '20px', pl: '120px' }}>
-          <Button variant="contained" sx={{ textTransform: 'none' }}>
-            Add Funds
-          </Button>
+          <Link href="/addFunds">
+            <Button variant="contained" sx={{ textTransform: 'none' }}>
+              Add Funds
+            </Button>
+          </Link>
         </Box>
 
         <Box sx={{ pb: '20px', pl: '105px' }}>
