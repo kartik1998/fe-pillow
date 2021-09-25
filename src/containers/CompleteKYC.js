@@ -10,7 +10,8 @@ const CompleteKYC = () => {
 function startKYC() {
   function docConfigSetters(hvDocConfig) {
     hvDocConfig.setShouldShowInstructionPage(true);
-    hvDocConfig.docTextConfig.setDocCaptureTitle('Click Aadhaar card front photo');
+    hvDocConfig.docTextConfig.setDocCaptureTitle('KYC');
+    hvDocConfig.docTextConfig.setDocCaptureDescription('Click a photo of your Aadhaar, Pan or Voter ID');
     hvDocConfig.docTextConfig.setDocInstructions1('Hold your Aadhaar card within the box');
     hvDocConfig.docTextConfig.setDocInstructions3('Avoid glare from lights');
   }
