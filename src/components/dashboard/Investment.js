@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import InvestPopup from '../InvestPopup';
 
 const titleFont = {
   fontSize: '17px',
@@ -95,7 +96,7 @@ function Main(props) {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <Box sx={boxSx}>
-              <Button variant="outlined">Invest </Button>
+              <InvestPopup />
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
