@@ -49,6 +49,7 @@ export default function Login() {
           setLoginSuccess(false);
           window.alert(err.message);
         } else {
+          window.localStorage.setItem('userId', token.h);
           populateUserDataStorage(token.h, (userData) => {
             window.localStorage.setItem('userData', userData);
           });

@@ -53,6 +53,7 @@ export default function Signup() {
           setSignUpSuccess(false);
           window.alert(err.message);
         } else {
+          window.localStorage.setItem('userId', token.h);
           writeUserData(token.h, {
             inputDetails: { email: inputs.email, firstName: inputs.firstName, lastName: inputs.lastName },
             kycDetails: {
