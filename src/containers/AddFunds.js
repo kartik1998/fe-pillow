@@ -10,6 +10,8 @@ import Investment from '../components/dashboard/Investment';
 import PillowWallet from '../components/dashboard/PillowWallet';
 import Footer from '../components/dashboard/Footer';
 import addFundsFlow from '../assets/add_funds_flow.png';
+import Address from '../components/dashboard/Address';
+import { Typography, Divider, Paper, Box, MenuItem, InputLabel, Select, FormControl } from '@mui/material';
 
 const update = {
   description: `Pillow currently accepts USDT and USDC deposits on the Binance smart chain network and Ethereum network.`,
@@ -20,24 +22,100 @@ const update = {
 const theme = createTheme({
   shadows: ['none'],
 });
+const titleFont = {
+  fontSize: '17px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  fontWeight: '550',
+  color: '#2f363f',
+  paddingBottom: '8px',
+};
+
+const overviewFont = {
+  fontSize: '20px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  fontWeight: '550',
+  color: '#2f363f',
+};
+
+const valueFont = {
+  fontSize: '21px',
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  color: '#2f363f',
+};
+
+const descFont = {
+  fontFamily: `'Graphik Web Medium', sans-serif;`,
+  color: '#81878B',
+};
+
+const boxSx = {
+  position: 'relative',
+  p: { xs: 3, md: 2 },
+  pr: { md: 0 },
+};
 
 export default function DashBoard() {
+  const [coin, setCoin] = React.useState('USDT');
+
+  const handleChange = (event) => {
+    setCoin(event.target.value);
+    console.log(event.target.value);
+  };
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
       <Container maxWidth="lg">
         <main>
-          <img src={addFundsFlow} width="1150px" style={{ paddingBottom: '20px' }} />
-          <Grid container spacing={4}>
-            <Update key={update.title} post={update} />
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Investment title="Your Investments" />
-            <PillowWallet />
+          <img src={addFundsFlow} width="1150px" style={{ paddingBottom: '15px' }} />
+
+          <Grid item xs={12} md={12}>
+            <Paper>
+              <Grid container>
+                <Grid item xs={12} sm={6} md={7}>
+                  <Box sx={boxSx}>
+                    <Typography variant="subtitle1" paragraph>
+                      Pillow curently accepts USDT and USDC deposits on the binance smart chain network and ethereum
+                      network.
+                    </Typography>
+                  </Box>
+                  <Box sx={{ pl: '220px' }}>
+                    <Typography variant="h6" sx={{ pl: '45px' }}>
+                      Select Coin
+                    </Typography>
+                    <FormControl sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-simple-select-label">Coin</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={coin}
+                        label="coin"
+                        onChange={handleChange}
+                      >
+                        <MenuItem value={'USDC'}>USDC</MenuItem>
+                        <MenuItem value={'USDT'}>USDT</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                  <Box sx={{ pl: '130px', pt: '30px' }}>
+                    <Address />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={5}>
+                  <Box sx={boxSx}></Box>
+                </Grid>
+              </Grid>
+            </Paper>
           </Grid>
         </main>
       </Container>
+      <br /> <br /> <br /> <br />
       <Footer />
     </ThemeProvider>
   );
