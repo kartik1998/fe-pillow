@@ -19,3 +19,12 @@ export const getUserData = () => {
   const data = window.localStorage.getItem('userData');
   if (data) return JSON.parse(data);
 };
+
+export const getKeyValData = (key, cb) => {
+  return firebase
+    .database()
+    .ref(`${key}/`)
+    .on('value', (snapshot) => {
+      cb(snapshot.val());
+    });
+};

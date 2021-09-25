@@ -4,6 +4,7 @@ import Signup from './components/Signup';
 import Dashboard from './containers/Dashboard';
 import Plans from './containers/Plans';
 import AddFunds from './containers/AddFunds';
+import CompleteKYC from './containers/CompleteKYC';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/plans" component={Plans} />
       <Route path="/addFunds" component={AddFunds} />
+      <Route path="/completeKYC" component={CompleteKYC} />
     </Router>
   );
 }
