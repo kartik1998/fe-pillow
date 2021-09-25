@@ -4,13 +4,10 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '../components/dashboard/Header';
-import Overview from '../components/dashboard/Overview';
-import Update from '../components/dashboard/Update';
-import Investment from '../components/dashboard/Investment';
-import PillowWallet from '../components/dashboard/PillowWallet';
 import Footer from '../components/dashboard/Footer';
 import addFundsFlow from '../assets/add_funds_flow.png';
 import Address from '../components/dashboard/Address';
+import AddFundsInstructions from '../components/dashboard/AddFundsInstructions';
 import { Typography, Divider, Paper, Box, MenuItem, InputLabel, Select, FormControl } from '@mui/material';
 
 const update = {
@@ -73,11 +70,11 @@ export default function DashBoard() {
       <Header />
       <Container maxWidth="lg">
         <main>
-          <img src={addFundsFlow} width="1150px" style={{ paddingBottom: '15px' }} />
+          <img src={addFundsFlow} width="1150px" />
 
           <Grid item xs={12} md={12}>
             <Paper>
-              <Grid container>
+              <Grid container spacing={5} sx={{ mt: 3 }}>
                 <Grid item xs={12} sm={6} md={7}>
                   <Box sx={boxSx}>
                     <Typography variant="subtitle1" paragraph>
@@ -107,15 +104,17 @@ export default function DashBoard() {
                     <Address />
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={6} md={5}>
-                  <Box sx={boxSx}></Box>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Box sx={boxSx}>
+                    <AddFundsInstructions />
+                  </Box>
                 </Grid>
               </Grid>
             </Paper>
           </Grid>
         </main>
       </Container>
-      <br /> <br /> <br /> <br />
+      <br /> <br />
       <Footer />
     </ThemeProvider>
   );

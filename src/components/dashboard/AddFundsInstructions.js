@@ -33,45 +33,23 @@ const boxSx = {
   pl: '140px',
 };
 
-function PillowWallet() {
+function AddFundsInstructions() {
   return (
-    <Grid item xs={12} md={4}>
+    <Grid>
       <Paper variant="outlined">
         <Typography align="center" style={pillowFont} sx={{ paddingBottom: '30px', paddingTop: '7px' }}>
-          Pillow Wallet{' '}
-          <img
-            src="https://cdn.iconscout.com/icon/premium/png-256-thumb/bitcoin-wallet-3058908-2546445.png"
-            height="25px"
-            style={{ paddingTop: '12px' }}
-          />
+          How to get USDT & USDC?{' '}
         </Typography>
-        <Grid container sx={{ pl: '60px', pb: '30px' }}>
-          <Grid item md={6}>
-            <Typography style={descFont} gutterBottom>
-              USDT Balance
-            </Typography>
-            <Typography variant="p" style={valueFont} paragraph sx={{ pl: '20px' }}>
-              $0.00
-            </Typography>
-          </Grid>
-          <Grid item md={6}>
-            <Typography style={descFont} gutterBottom>
-              USDC Balance
-            </Typography>
-            <Typography variant="p" style={valueFont} paragraph sx={{ pl: '20px' }}>
-              $0.00
-            </Typography>
-          </Grid>
-        </Grid>
-        <Box sx={{ pb: '20px', pl: '120px' }}>
+
+        <Box sx={{ pb: '20px', pl: '40px' }}>
           <Button variant="contained" sx={{ textTransform: 'none' }}>
-            Add Funds
+            Step by step guide for INR deposits
           </Button>
         </Box>
 
-        <Box sx={{ pb: '20px', pl: '105px' }}>
+        <Box sx={{ pb: '20px', pl: '27px' }}>
           <Button variant="outlined" sx={{ textTransform: 'none' }}>
-            Withdraw Funds
+            Follow along the video for INR deposits
           </Button>
         </Box>
       </Paper>
@@ -79,4 +57,4 @@ function PillowWallet() {
   );
 }
 
-export default PillowWallet;
+export default AddFundsInstructions;
