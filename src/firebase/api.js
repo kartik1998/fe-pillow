@@ -19,6 +19,19 @@ export const investOrRedeem = (userData, value, type = 'Invest') => {
     .catch(alert);
 };
 
+export const withdraw = (userData, usdcVal, usdtVal) => {
+  const userId = window.localStorage.getItem('userId');
+  window.localStorage.setItem('userData', JSON.stringify(userData));
+  firebase
+    .database()
+    .ref(`user/${userId}`)
+    .set(userData)
+    .then(() => {
+      alert(`withdrawal request for ${usdcVal} USDC & ${usdtVal} USDT sent`);
+    })
+    .catch(alert);
+};
+
 export const populateUserDataStorage = (userId, cb) => {
   return firebase
     .database()
