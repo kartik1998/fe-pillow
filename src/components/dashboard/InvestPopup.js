@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
-export default function InvestPopup() {
+export default function InvestPopup({ type, text }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,10 +20,12 @@ export default function InvestPopup() {
     setOpen(false);
   };
 
+  const variant = type ? type : 'outlined';
+
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Invest
+      <Button variant={variant} onClick={handleClickOpen}>
+        {text ? text : 'Invest'}
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle

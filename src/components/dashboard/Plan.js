@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import InvestPopup from './InvestPopup';
 
 const overviewFont = {
   fontSize: '17px',
@@ -94,7 +95,7 @@ function MainFeaturedPost(props) {
         <Grid item xs={12} sm={6} md={2} sx={{ pt: '11.5px' }}>
           <Box sx={boxSx}>
             <Box sx={{ pb: '20px', flex: 1 }}>
-              <Button variant="contained">Invest now</Button>
+              <InvestPopup type="contained" text="Invest Now" />
             </Box>
             <Box>
               <Button variant="outlined">fact sheet</Button>
