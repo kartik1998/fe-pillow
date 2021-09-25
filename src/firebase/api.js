@@ -6,6 +6,19 @@ export const writeUserData = (userId, userData) => {
   firebase.database().ref(`user/${userId}`).set(userData).catch(alert);
 };
 
+export const invest = (userData, investValue) => {
+  const userId = window.localStorage.getItem('userId');
+  window.localStorage.setItem('userData', JSON.stringify(userData));
+  firebase
+    .database()
+    .ref(`user/${userId}`)
+    .set(userData)
+    .then(() => {
+      alert(`Invest request for ${investValue} USDC sent`);
+    })
+    .catch(alert);
+};
+
 export const populateUserDataStorage = (userId, cb) => {
   return firebase
     .database()

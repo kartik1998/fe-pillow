@@ -8,9 +8,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
+import { invest } from '../../firebase/api';
 
 export default function InvestPopup({ type, text }) {
   const [open, setOpen] = React.useState(false);
+  const [investValue, setInvestValue] = React.useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,6 +20,15 @@ export default function InvestPopup({ type, text }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleConfirmation = () => {
+    const userData = JSON.parse(window.localStorage.getItem('userData'));
+    if (!userData.investments) userData.investments = [];
+    userData.investments.push({ investValue, status: 'pending' });
+    invest(userData, investValue);
+    setOpen(false);
+    setInvestValue('');
   };
 
   const variant = type ? type : 'outlined';
@@ -39,7 +50,19 @@ export default function InvestPopup({ type, text }) {
 
         <DialogContent sx={{ pb: '40px' }}>
           <DialogContentText>Amount in USDC</DialogContentText>
-          <TextField autoFocus margin="dense" id="name" label="USDC" type="number" fullWidth variant="standard" />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="USDC"
+            type="number"
+            fullWidth
+            variant="standard"
+            value={investValue}
+            onChange={(e) => {
+              setInvestValue(e.target.value);
+            }}
+          />
         </DialogContent>
         <DialogActions sx={{ pb: '20px' }}>
           <Box sx={{ pr: '60px' }}>
@@ -48,7 +71,7 @@ export default function InvestPopup({ type, text }) {
             </Button>
           </Box>
           <Box sx={{ pr: '10px' }}>
-            <Button onClick={handleClose} variant="outlined">
+            <Button onClick={handleConfirmation} variant="outlined">
               Confirm
             </Button>
           </Box>
