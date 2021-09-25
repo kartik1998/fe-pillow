@@ -102,7 +102,7 @@ function Main(props) {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <Box sx={boxSx}>
-              <RedeemPopup />
+              <RedeemPopup requestRecieved={true} />
             </Box>
           </Grid>
         </Grid>

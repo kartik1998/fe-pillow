@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
-export default function RedeemPopup() {
+export default function RedeemPopup({ requestRecieved }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,6 +20,36 @@ export default function RedeemPopup() {
     setOpen(false);
   };
 
+  return requestRecieved
+    ? redeemRecieved(open, handleClickOpen, handleClose)
+    : redeem(open, handleClickOpen, handleClose);
+}
+
+function redeemRecieved(open, handleClickOpen, handleClose) {
+  return (
+    <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Redeem
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle sx={{ p: '50px', fontWeight: 'bold' }} style={{ color: 'gray' }}>
+          {' '}
+          Redeem from Securitas
+          <Divider />
+        </DialogTitle>
+
+        <DialogContent sx={{ pb: '50px', pl: '50px' }}>
+          <DialogContentText>
+            Your request for withdrawal has <br /> been recieved. <br /> Withdrawal will be processed <br />
+            to your wallet within 24hrs.{' '}
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
+
+function redeem(open, handleClickOpen, handleClose) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
