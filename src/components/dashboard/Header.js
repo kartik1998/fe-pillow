@@ -1,15 +1,18 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Link from '@mui/material/Link';
+import { Redirect } from 'react-router-dom';
+import { checkKYCStatus } from '../../firebase/kyc';
 
 const navbarSx = { color: '#535B61', textTransform: 'none' };
-function Header(props) {
-  const { sections } = props;
+function Header() {
+  const [signedIn, setSignedIn] = React.useState(true);
 
+  if (!signedIn || !localStorage.getItem('userData')) return <Redirect to="/login" />;
+  if (!checkKYCStatus()) return <Redirect to="/completeKYC" />;
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', height: '1em' }}>
@@ -40,7 +43,14 @@ function Header(props) {
           <Button size="large" sx={navbarSx}>
             Contact support
           </Button>
-          <Button size="large" sx={navbarSx}>
+          <Button
+            size="large"
+            sx={navbarSx}
+            onClick={() => {
+              localStorage.clear();
+              setSignedIn(false);
+            }}
+          >
             Sign out
           </Button>
         </Container>
@@ -49,15 +59,5 @@ function Header(props) {
     </React.Fragment>
   );
 }
-
-Header.propTypes = {
-  sections: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default Header;

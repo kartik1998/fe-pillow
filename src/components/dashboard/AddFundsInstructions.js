@@ -14,25 +14,6 @@ const pillowFont = {
   fontWeight: 'bold',
 };
 
-const valueFont = {
-  fontSize: '21px',
-  fontFamily: `'Graphik Web Medium', sans-serif;`,
-  fontStyle: 'normal',
-  fontStretch: 'normal',
-  color: '#2f363f',
-};
-
-const descFont = {
-  fontFamily: `'Graphik Web Medium', sans-serif;`,
-  color: '#81878B',
-  fontWeight: 'bold',
-};
-
-const boxSx = {
-  flex: 1,
-  pl: '140px',
-};
-
 function AddFundsInstructions() {
   return (
     <Grid>
