@@ -8,9 +8,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
+import { investOrRedeem } from '../../firebase/api';
 
-export default function RedeemPopup({ requestRecieved }) {
+export default function RedeemPopup() {
   const [open, setOpen] = React.useState(false);
+  const [redeemValue, setRedeemValue] = React.useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,34 +22,15 @@ export default function RedeemPopup({ requestRecieved }) {
     setOpen(false);
   };
 
-  return requestRecieved ? redeem(open, handleClickOpen, handleClose) : redeem(open, handleClickOpen, handleClose);
-}
+  const handleConfirmation = () => {
+    const userData = JSON.parse(window.localStorage.getItem('userData'));
+    if (!userData.investments) userData.investments = [];
+    userData.investments.push({ redeemValue: `${redeemValue} USDC`, status: 'pending' });
+    investOrRedeem(userData, redeemValue, 'Redeem');
+    setOpen(false);
+    setRedeemValue('');
+  };
 
-function redeemRecieved(open, handleClickOpen, handleClose) {
-  return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Redeem
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle sx={{ p: '50px', fontWeight: 'bold' }} style={{ color: 'gray' }}>
-          {' '}
-          Redeem from Securitas
-          <Divider />
-        </DialogTitle>
-
-        <DialogContent sx={{ pb: '50px', pl: '50px' }}>
-          <DialogContentText>
-            Your request for withdrawal has <br /> been recieved. <br /> Withdrawal will be processed <br />
-            to your wallet within 24hrs.{' '}
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
-    </div>
-  );
-}
-
-function redeem(open, handleClickOpen, handleClose) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -65,7 +48,17 @@ function redeem(open, handleClickOpen, handleClose) {
 
         <DialogContent sx={{ pb: '40px' }}>
           <DialogContentText>Amount in USDC</DialogContentText>
-          <TextField autoFocus margin="dense" id="name" label="USDC" type="number" fullWidth variant="standard" />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            value={redeemValue}
+            label="USDC"
+            type="number"
+            fullWidth
+            variant="standard"
+            onChange={(e) => setRedeemValue(e.target.value)}
+          />
         </DialogContent>
         <DialogActions sx={{ pb: '20px' }}>
           <Box sx={{ pr: '100px' }}>
@@ -74,7 +67,7 @@ function redeem(open, handleClickOpen, handleClose) {
             </Button>
           </Box>
           <Box sx={{ pr: '10px' }}>
-            <Button onClick={handleClose} variant="outlined">
+            <Button onClick={handleConfirmation} variant="outlined">
               Confirm
             </Button>
           </Box>

@@ -6,7 +6,7 @@ export const writeUserData = (userId, userData) => {
   firebase.database().ref(`user/${userId}`).set(userData).catch(alert);
 };
 
-export const invest = (userData, investValue) => {
+export const investOrRedeem = (userData, value, type = 'Invest') => {
   const userId = window.localStorage.getItem('userId');
   window.localStorage.setItem('userData', JSON.stringify(userData));
   firebase
@@ -14,7 +14,7 @@ export const invest = (userData, investValue) => {
     .ref(`user/${userId}`)
     .set(userData)
     .then(() => {
-      alert(`Invest request for ${investValue} USDC sent`);
+      alert(`${type} request for ${value} USDC sent`);
     })
     .catch(alert);
 };

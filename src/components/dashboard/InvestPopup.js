@@ -8,7 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import { invest } from '../../firebase/api';
+import { investOrRedeem } from '../../firebase/api';
 
 export default function InvestPopup({ type, text }) {
   const [open, setOpen] = React.useState(false);
@@ -25,8 +25,8 @@ export default function InvestPopup({ type, text }) {
   const handleConfirmation = () => {
     const userData = JSON.parse(window.localStorage.getItem('userData'));
     if (!userData.investments) userData.investments = [];
-    userData.investments.push({ investValue, status: 'pending' });
-    invest(userData, investValue);
+    userData.investments.push({ investValue: `${investValue} USDC`, status: 'pending' });
+    investOrRedeem(userData, investValue);
     setOpen(false);
     setInvestValue('');
   };
