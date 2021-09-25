@@ -6,10 +6,12 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Link from '@mui/material/Link';
 import { Redirect } from 'react-router-dom';
 import { checkKYCStatus } from '../../firebase/kyc';
+import { firebaseAuth } from '../../context/AuthContext';
 
 const navbarSx = { color: '#535B61', textTransform: 'none' };
 function Header() {
   const [signedIn, setSignedIn] = React.useState(true);
+  const { setInputs } = React.useContext(firebaseAuth);
 
   if (!signedIn || !localStorage.getItem('userData')) return <Redirect to="/login" />;
   if (!checkKYCStatus()) return <Redirect to="/completeKYC" />;
@@ -48,6 +50,7 @@ function Header() {
             sx={navbarSx}
             onClick={() => {
               localStorage.clear();
+              setInputs({ email: '', password: '' });
               setSignedIn(false);
             }}
           >
