@@ -3,11 +3,17 @@ import { setHVJwtToken } from '../firebase/kyc';
 import { writeUserData } from '../firebase/api';
 
 const CompleteKYC = () => {
-  setHVJwtToken();
-  return <div>{setTimeout(startKYC(), 2000)}</div>;
+  setHVJwtToken(startKYC);
+  return <div></div>;
 };
 
 function startKYC() {
+  function docConfigSetters(hvDocConfig) {
+    hvDocConfig.setShouldShowInstructionPage(true);
+    hvDocConfig.docTextConfig.setDocCaptureTitle('Click Aadhaar card front photo');
+    hvDocConfig.docTextConfig.setDocInstructions1('Hold your Aadhaar card within the box');
+    hvDocConfig.docTextConfig.setDocInstructions3('Avoid glare from lights');
+  }
   window.HyperSnapSDK.init(window.localStorage.getItem('jwtToken'), window.HyperSnapParams.Region.India);
   window.HyperSnapSDK.startUserSession();
   const hvDocConfig = new window.HVDocConfig();
@@ -32,13 +38,6 @@ function startKYC() {
     }
   };
   window.HVDocsModule.start(hvDocConfig, callback);
-}
-
-function docConfigSetters(hvDocConfig) {
-  hvDocConfig.setShouldShowInstructionPage(true);
-  hvDocConfig.docTextConfig.setDocCaptureTitle('Click Aadhaar card front photo');
-  hvDocConfig.docTextConfig.setDocInstructions1('Hold your Aadhaar card within the box');
-  hvDocConfig.docTextConfig.setDocInstructions3('Avoid glare from lights');
 }
 
 export default CompleteKYC;
