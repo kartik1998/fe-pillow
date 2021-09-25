@@ -24,8 +24,8 @@ export default function RedeemPopup() {
 
   const handleConfirmation = () => {
     const userData = JSON.parse(window.localStorage.getItem('userData'));
-    if (!userData.investments) userData.investments = [];
-    userData.investments.push({ redeemValue: `${redeemValue} USDC`, status: 'pending' });
+    if (!userData.redeems) userData.redeems = [];
+    userData.redeems.push({ redeemValue: `${redeemValue} USDC`, status: 'pending' });
     investOrRedeem(userData, redeemValue, 'Redeem');
     setOpen(false);
     setRedeemValue('');
