@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
-export default function InvestPopup() {
+export default function RedeemPopup() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,7 +23,7 @@ export default function InvestPopup() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Invest
+        Redeem
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle
@@ -31,7 +31,7 @@ export default function InvestPopup() {
           style={{ color: 'gray' }}
         >
           {' '}
-          Invest in Securitas
+          Redeem from Securitas
           <Divider />
         </DialogTitle>
 
@@ -40,7 +40,7 @@ export default function InvestPopup() {
           <TextField autoFocus margin="dense" id="name" label="USDC" type="number" fullWidth variant="standard" />
         </DialogContent>
         <DialogActions sx={{ pb: '20px' }}>
-          <Box sx={{ pr: '60px' }}>
+          <Box sx={{ pr: '100px' }}>
             <Button onClick={handleClose} variant="outlined">
               Cancel
             </Button>
