@@ -66,7 +66,7 @@ export default function Signup() {
     }
   }, [inputs.email, inputs.password, inputs.firstName, inputs.lastName]);
 
-  if (signUpSuccess) return <Redirect to="/userKYC" />; // redirect when sign up is complete
+  if (signUpSuccess) return <Redirect to="/completeKYC" />; // redirect when sign up is complete
 
   return (
     <ThemeProvider theme={theme}>

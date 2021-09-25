@@ -64,7 +64,7 @@ function MainFeaturedPost(props) {
         <Grid item xs={12} sm={6} md={2}>
           <Box sx={boxSx}>
             <Typography style={{ ...overviewFont, color: 'green' }} gutterBottom>
-              Risk Profile
+              Features
             </Typography>
             <Typography variant="p" style={descFont} paragraph>
               ✔️ No Market risk <br />

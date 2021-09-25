@@ -20,9 +20,7 @@ export default function RedeemPopup({ requestRecieved }) {
     setOpen(false);
   };
 
-  return requestRecieved
-    ? redeemRecieved(open, handleClickOpen, handleClose)
-    : redeem(open, handleClickOpen, handleClose);
+  return requestRecieved ? redeem(open, handleClickOpen, handleClose) : redeem(open, handleClickOpen, handleClose);
 }
 
 function redeemRecieved(open, handleClickOpen, handleClose) {

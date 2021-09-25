@@ -8,8 +8,10 @@ export const checkKYCStatus = () => {
   return userData.kycDetails.status === 'complete';
 };
 
-export const setHVJwtToken = (cb) => {
-  getKeyValData('jwtToken', cb);
+export const setHVJwtToken = () => {
+  getKeyValData('jwtToken', (token) => {
+    window.localStorage.setItem('jwtToken', token);
+  });
 };
 // export const getHVJwtToken = async () => {
 //   const data = JSON.stringify({
