@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 const Address = () => {
   return (
     <>
-      <Typography variant="subtitle1"> Address: 0xecBbBb7cdEbc3fBE0D80D66Ce4148Cd7528991D7</Typography> <br />
+      <Typography variant="subtitle1"> Address: {window.localStorage.getItem('inputWalletAddress')}</Typography> <br />
       <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
         1. Send only USDT to this deposit address
       </Typography>

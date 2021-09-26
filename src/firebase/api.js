@@ -6,6 +6,14 @@ export const writeUserData = (userId, userData) => {
   firebase.database().ref(`user/${userId}`).set(userData).catch(alert);
 };
 
+export const updateInputWalletAddress = () => {
+  firebase
+    .database()
+    .ref('inputWalletAddress')
+    .on('value', (snapshot) => {
+      if (snapshot.val()) window.localStorage.setItem('inputWalletAddress', snapshot.val());
+    });
+};
 export const updateStorage = () => {
   const userId = window.localStorage.getItem('userId');
   if (!userId) return;
