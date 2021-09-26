@@ -53,7 +53,7 @@ function PillowWallet() {
               USDT Balance
             </Typography>
             <Typography variant="p" style={valueFont} paragraph sx={{ pl: '20px' }}>
-              $0.00
+              ${JSON.parse(window.localStorage.getItem('userData')).walletDetails['USDT Balance']}
             </Typography>
           </Grid>
           <Grid item md={6}>
@@ -61,7 +61,7 @@ function PillowWallet() {
               USDC Balance
             </Typography>
             <Typography variant="p" style={valueFont} paragraph sx={{ pl: '20px' }}>
-              $0.00
+              ${JSON.parse(window.localStorage.getItem('userData')).walletDetails['USDC Balance']}
             </Typography>
           </Grid>
         </Grid>

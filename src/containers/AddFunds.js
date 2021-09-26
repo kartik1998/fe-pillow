@@ -70,7 +70,7 @@ export default function DashBoard() {
       <Header />
       <Container maxWidth="lg">
         <main>
-          <img src={addFundsFlow} width="1150px" />
+          {/* <img src={addFundsFlow} width="1150px" /> */}
 
           <Grid item xs={12} md={12}>
             <Paper>

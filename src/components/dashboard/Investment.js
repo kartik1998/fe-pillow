@@ -81,7 +81,7 @@ function Main(props) {
                 Investment
               </Typography>
               <Typography variant="p" style={valueFont} paragraph>
-                $0.00
+                ${JSON.parse(window.localStorage.getItem('userData')).investmentDetails['Securitas Balance']}
               </Typography>
             </Box>
           </Grid>
@@ -91,7 +91,7 @@ function Main(props) {
                 Returns
               </Typography>
               <Typography variant="p" style={valueFont} paragraph>
-                $0.00
+                ${JSON.parse(window.localStorage.getItem('userData')).investmentDetails['Securitas Interest']}
               </Typography>
             </Box>
           </Grid>

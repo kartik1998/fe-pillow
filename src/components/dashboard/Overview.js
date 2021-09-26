@@ -63,7 +63,9 @@ function MainFeaturedPost(props) {
               Total Value
             </Typography>
             <Typography variant="p" style={valueFont} paragraph>
-              $0.00
+              $
+              {JSON.parse(window.localStorage.getItem('userData')).investmentDetails.Total +
+                JSON.parse(window.localStorage.getItem('userData')).walletDetails.Total}
             </Typography>
           </Box>
         </Grid>
@@ -73,7 +75,7 @@ function MainFeaturedPost(props) {
               Total Investment
             </Typography>
             <Typography variant="p" style={valueFont} paragraph>
-              __
+              ${JSON.parse(window.localStorage.getItem('userData')).investmentDetails.Total}
             </Typography>
           </Box>
         </Grid>
@@ -83,7 +85,7 @@ function MainFeaturedPost(props) {
               Current returns
             </Typography>
             <Typography variant="p" style={valueFont} paragraph>
-              __
+              ${JSON.parse(window.localStorage.getItem('userData')).investmentDetails['Securitas Interest']}
             </Typography>
           </Box>
         </Grid>
