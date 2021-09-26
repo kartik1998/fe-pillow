@@ -9,7 +9,7 @@ Kartik
     - Total = Balance + Interest
 
 Deposit and Withdraw are Wallet Actions. Invest and Redeem are Securitas Actions. 
-- Deposit
+- Deposit (handled by arindam, direectly wallet to be edited)
     - request received. Set to "pending". 
     - manually updated to "completed". 
     - when "completed" trigger logic - USDC Balance += USDC value, USDT Balance += USDT value 
