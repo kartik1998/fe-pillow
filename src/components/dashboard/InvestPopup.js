@@ -26,8 +26,14 @@ export default function InvestPopup({ type, text }) {
     const userData = JSON.parse(window.localStorage.getItem('userData'));
     if (!userData.investments) userData.investments = [];
     userData.investments.push({ investValue: `${investValue} USDC`, status: 'pending' });
-    investOrRedeem(userData, investValue);
-    setOpen(false);
+    if (investValue <= userData.walletDetails['USDC Balance']) {
+      investOrRedeem(userData, investValue);
+      setOpen(false);
+    } else {
+      alert(
+        `[Error] Currently your wallet has ${userData.walletDetails['USDC Balance']} USDC. Please invest accordingly`,
+      );
+    }
     setInvestValue('');
   };
 
