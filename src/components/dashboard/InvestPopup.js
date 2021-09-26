@@ -26,6 +26,7 @@ export default function InvestPopup({ type, text }) {
     const userData = JSON.parse(window.localStorage.getItem('userData'));
     if (!userData.investments) userData.investments = [];
     userData.investments.push({ investValue: `${investValue} USDC`, status: 'pending' });
+    if (investValue === '') return;
     if (investValue <= userData.walletDetails['USDC Balance']) {
       investOrRedeem(userData, investValue);
       setOpen(false);
