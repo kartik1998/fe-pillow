@@ -63,7 +63,7 @@ export default function WithDrawFunds() {
             margin="dense"
             id="name"
             value={usdtValue}
-            label="USDC"
+            label="USDT"
             type="number"
             fullWidth
             variant="standard"
