@@ -137,7 +137,7 @@ export default function Signup() {
               />
               {/* <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" /> */}
               <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item xs>
