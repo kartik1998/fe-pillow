@@ -59,6 +59,16 @@ export default function Signup() {
             kycDetails: {
               status: 'incomplete',
             },
+            walletDetails: {
+              'USDT Balance': 0,
+              'USDC Balance': 0,
+              Total: 0,
+            },
+            investmentDetails: {
+              'Securitas Balance': 0,
+              'Securitas Interest': 0,
+              Total: 0,
+            },
           });
           setSignUpSuccess(true);
         }

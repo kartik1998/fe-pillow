@@ -1,0 +1,38 @@
+Kartik
+  - Wallet
+    - USDC Balance
+    - USDT Balance
+    - Total = USDC + USDT
+  - Investments
+    - Securitas Balance
+    - Securitas Interest
+    - Total = Balance + Interest
+
+Deposit and Withdraw are Wallet Actions. Invest and Redeem are Securitas Actions. 
+- Deposit
+    - request received. Set to "pending". 
+    - manually updated to "completed". 
+    - when "completed" trigger logic - USDC Balance += USDC value, USDT Balance += USDT value 
+- Withdraw
+    - request received. Set to "pending". 
+    - manually updated to "completed". 
+    - when "completed" trigger logic - USDC Balance -= USDC value, USDT Balance -= USDT value 
+
+
+- Invest
+   - request received, set to "pending"
+   - manually updated to "completed"
+   - when "completed", trigger logics 
+        - Wallet
+            - USDC balance -= invested amount
+        - Investments
+            - Securitas balance += invested amount 
+
+- Redeem 
+   - request received, set to "pending"
+   - manually updated to "completed"
+   - when "completed", trigger logics 
+        - Wallet
+            - USDC balance += redeemed amount
+        - Investments
+            - Securitas balance -= redeemed amount
